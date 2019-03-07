@@ -10,6 +10,7 @@ using API_ProDocker.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.DotNet.PlatformAbstractions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -19,16 +20,15 @@ namespace API_ProDocker.Controllers
     [ApiController]
     public class TestController : ControllerBase
     {
-        ILogger logger;
         SchoolContext context = null;
         PersonContext sqlitecontext = null;
         IHostingEnvironment ihostingEnvironment = null;
-        public TestController(SchoolContext _context,PersonContext _sqlitecontext, IHostingEnvironment _ihostingEnvironment, ILogger<ControllerService> _logger)
+        public TestController(SchoolContext _context,PersonContext _sqlitecontext, IHostingEnvironment _ihostingEnvironment)
         {
             context = _context;
             sqlitecontext = _sqlitecontext;
             ihostingEnvironment = _ihostingEnvironment;
-            logger = _logger;
+            
         }
 
         
@@ -92,9 +92,7 @@ namespace API_ProDocker.Controllers
         {
             var result = ControllerService.Run(() =>
             {
-                logger.LogInformation("测试错误信息1111111111");
-                logger.LogError("测试错误信息");
-                logger.Log(LogLevel.Error, "xxxxxxxxxxasdas阿斯顿撒旦撒");
+                throw new Exception(ApplicationEnvironment.ApplicationBasePath);
             });
             return this.Ok(result);
         }

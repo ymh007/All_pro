@@ -26,8 +26,7 @@ namespace API_ProDocker
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            //ILoggerRepository repository = LogManager.CreateRepository("NETCoreRepository");
-            //XmlConfigurator.Configure(repository, new FileInfo("log4net.config"));
+            
         }
 
         

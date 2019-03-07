@@ -1,13 +1,28 @@
 ﻿using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using log4net;
+using log4net.Config;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace API_ProDocker.Common
 {
     public class ControllerService
     {
-        private static ILogger logger;
-
+        private static ILog logger;
+        
+        static ControllerService()
+        {
+            if (logger == null)
+            {
+                var repository = LogManager.CreateRepository("NETCoreRepository");
+                XmlConfigurator.Configure(repository, new FileInfo("log4net.config"));
+                logger = LogManager.GetLogger(repository.Name, "InfoLogger");
+            }
+        }
 
 
         /// <summary>
@@ -26,7 +41,9 @@ namespace API_ProDocker.Common
             {
                 baseView.State = false;
                 baseView.Message = e.Message;
-                //logger.LogInformation(e.Message);
+                logger.Error("error-------"+e.Message);
+                //logger.Info("info---------"+e.Message);
+                //logger.Debug("debug---------"+e.Message);
             }
             return baseView;
         }

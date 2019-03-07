@@ -3,14 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using API_ProDocker.Data;
-using log4net;
-using log4net.Config;
+using API_ProDocker.Data; 
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
+
 
 namespace API_ProDocker
 {
@@ -40,14 +36,14 @@ namespace API_ProDocker
 
         public static IWebHost CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
-       // .UseUrls("http://10.23.83.215:5000")
+        .UseUrls("http://10.23.80.87:5000")
         .UseStartup<Startup>()
-        .ConfigureLogging((hostContext, logging) =>
-        {
-            logging.AddFilter("System", LogLevel.Warning);
-            logging.AddFilter("Microsoft", LogLevel.Warning);
-            logging.AddLog4Net();
-        })
+        //.ConfigureLogging((hostContext, logging) =>
+        //{
+        //    logging.AddFilter("System", LogLevel.Warning);
+        //    logging.AddFilter("Microsoft", LogLevel.Warning);
+        //    logging.AddLog4Net();
+        //})
         .Build();
 
 
