@@ -94,6 +94,7 @@ namespace API_ProDocker.Controllers
             {
                 logger.LogInformation("测试错误信息1111111111");
                 logger.LogError("测试错误信息");
+                logger.Log(LogLevel.Error, "xxxxxxxxxxasdas阿斯顿撒旦撒");
             });
             return this.Ok(result);
         }
