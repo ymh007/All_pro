@@ -1,0 +1,36 @@
+﻿<div class="staff-service"> 
+    <div class="form-inline"> 
+        <div>{{demoData}}</div>
+       <div class="clearfix"></div>
+    </div>
+	<div>
+		<expander class='expander' expander-title='title'>
+            {{text}}
+        </expander>
+	</div>
+    <h1>时间控件</h1>
+
+	<div>
+	 <input type="text" pick-a-date="Time_d" 
+            pick-a-date-options="{ format: 'yyyy-mm-dd',selectYears: true }" 
+            class="form-control-text iecssl" />
+    </div>
+    <div>
+  <table>
+        <th>
+            <td>name</td>
+            <td>extension</td>
+            <td>createTime</td>
+        </th>
+        <tr ng-repeat="item in  files">
+            <td>{{item.fileName}}</td>
+            <td>{{item.extension}}</td>
+            <td>{{item.createTime}}</td>
+        </tr>
+    </table>
+
+        
+    </div>
+  
+	
+</div>

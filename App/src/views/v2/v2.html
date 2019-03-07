@@ -1,0 +1,88 @@
+<div class="staff-service">
+    <div class="input-group">
+        <div class="input-group-btn">
+            <!-- Button and dropdown menu -->
+        </div>
+        <input type="text" class="form-control" aria-label="...">
+    </div>
+
+    <div class="input-group">
+        <input type="text" class="form-control" aria-label="...">
+        <div class="input-group-btn">
+            <!-- Button and dropdown menu -->
+        </div>
+    </div>
+
+
+    <div class="form-inline">
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">Profile</a></li>
+            <li role="presentation"><a href="#">Messages</a></li>
+        </ul>
+    </div>
+     <div class="form-inline">
+           <table class="table table-bordered table-hover" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th class="col-xs-1 col-sm-1 col-md-1">序号</th>
+                            <th class="col-xs-3 col-sm-3 col-md-3">所需文件<span class="asterisk-color">*</span></th>
+                            <th class="col-xs-1 col-sm-1 col-md-1">份数<span class="asterisk-color">*</span></th>
+                            <th class="col-xs-5 col-sm-5 col-md-5">资料借阅文件名称<span class="asterisk-color">*</span></th>
+                            <th class="col-xs-2 col-sm-2 col-md-2">盖章类型</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr> 
+                            <td>1</td>
+                            <td>
+                                <div class="user-ll box-lol" sog-ogu-input="usedUserV1" opts="optsOuUserPreparing" sog-valide-status="选择人" sog-valide-status-inside></div>
+                            </td>
+                            <td>
+                                 <input onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" maxlength="3">
+                            </td>
+                            <td>
+                                <div my-digital class="meeting" ng-model="fileCount" opts="my_opts"></div> 
+                            </td>
+                            <td>
+                                 <input type="button" ng-click="test()" class="form-control" value="Get">
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>2</td>
+                            <td>
+                                
+                            </td>
+                            <td>
+                                 
+                            </td>
+                            <td>
+                                
+                            </td>
+                            <td>
+                               
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+    </div>
+            <table class="table table-bordered table-hover" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th class="col-xs-1 col-sm-1 col-md-1">序号</th>
+                            <th class="col-xs-3 col-sm-3 col-md-3">id<span class="asterisk-color">*</span></th>
+                            <th class="col-xs-1 col-sm-1 col-md-1">名字<span class="asterisk-color">*</span></th>
+                            <th class="col-xs-1 col-sm-1 col-md-1">时间<span class="asterisk-color">*</span></th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr ng-repeat="item in  datalist"> 
+                            <td>{{$index+1}}</td>
+                            <td>{{item.code}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.creatorTime}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+</div>

@@ -1,0 +1,18 @@
+{
+  "andy1": {
+    "name": "andy",
+    "outhor": "测试数据"
+  },
+  "andy2": {
+    "name": "andy2",
+    "outhor": "测试数据2"
+  },
+  "customerConfig": {
+    "customerUrl": "https://develop-test.sinooceangroup.com/THRWebApi/Platform/Assistant/LoadAssistants",
+    "customerInfo": [
+      {
+        "applicationName": "土地获取"
+      }
+    ]
+  }
+}

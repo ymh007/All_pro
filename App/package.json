@@ -1,0 +1,20 @@
+{
+  "name": "myApp-APplication-Simple",
+  "version": "1.0.0",
+  "description": "andy",
+  "author": "Name",
+  "private": true,
+  "dependencies": { },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-bom": "^1.0.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-htmlhint": "^0.3.1",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-jsonlint": "^1.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-rev": "^7.1.2",
+    "gulp-imagemin": "3.1.1",
+    "sog-gulp-rev-collector": "0.0.1"
+  }
+}

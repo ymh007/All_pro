@@ -1,0 +1,12 @@
+{
+  "config1Name":{
+    "baseUrl":"www.baidu.com",
+    "applicationName":"my-ajs-demo"
+    },
+   "moduleName":{
+    "baseUrl":"www.baidu.com",
+    "applicationName":"测试数据"
+    }
+    
+}
+ 

@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>angular-demo</title> 
+	<style>
+        body {
+            background: #fff;
+            color: #505050;
+            font: 14px 'Segoe UI', tahoma, arial, helvetica, sans-serif;
+            font-family: '微软雅黑 Light', '微软雅黑', 'Heiti SC Light';
+            margin: 20px;
+            padding: 0;
+        }
+
+        #header {
+            background: #efefef;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: normal;
+            margin: 0;
+            padding: 0 30px;
+            line-height: 150px;
+        }
+
+        p {
+            font-size: 20px;
+            color: #fff;
+            background: #969696;
+            padding: 0 30px;
+            line-height: 50px;
+        }
+
+        #main {
+            padding: 5px 30px;
+        }
+
+        .section {
+            width: 21.7%;
+            float: left;
+            margin: 0 0 0 4%;
+        }
+
+            .section h2 {
+                font-size: 13px;
+                text-transform: uppercase;
+                margin: 0;
+                border-bottom: 1px solid silver;
+                padding-bottom: 12px;
+                margin-bottom: 8px;
+            }
+
+            .section.first {
+                margin-left: 0;
+            }
+
+                .section.first h2 {
+                    font-size: 24px;
+                    text-transform: none;
+                    margin-bottom: 25px;
+                    border: none;
+                }
+
+                .section.first li {
+                    border-top: 1px solid silver;
+                    padding: 8px 0;
+                }
+
+            .section.last {
+                margin-right: 0;
+            }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            line-height: 20px;
+        }
+
+        li {
+            padding: 4px 0;
+        }
+
+        a {
+            color: #267cb2;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <h1>MyApp</h1>
+        <p>angular-js demo</p>
+    </div>
+
+    <div id="main">
+        
+        <div class="section"> 
+            <ul>
+                <li>
+                    <a href="common.htm#/view1" target="_blank">页面1</a>
+                </li>
+                <li>
+                    <a href="common.htm#/view2" target="_blank">页面2</a>
+                </li>
+                <li>
+                    <a href="common.htm#/corep" target="_blank">CoreAppPage</a>
+                </li>
+            </ul>
+        </div> 
+    </div>
+	<form id="uploadForm" method = 'post'  enctype="multipart/form-data" action="http://localhost:10000/File/OldUploadFile">
+            <input type="file" id="files" name="files" placeholder="file" multiple><br>
+            <input type="submit"  name="fileUpload"  value="fileUpload" >
+        </form>
+</body>
+</html>
