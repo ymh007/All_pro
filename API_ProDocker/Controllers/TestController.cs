@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 using API_ProDocker.Common;
+using API_ProDocker.DapperData;
 using API_ProDocker.Data;
 using API_ProDocker.Models;
 using Microsoft.AspNetCore.Hosting;
@@ -12,6 +13,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.DotNet.PlatformAbstractions;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace API_ProDocker.Controllers
@@ -20,18 +22,19 @@ namespace API_ProDocker.Controllers
     [ApiController]
     public class TestController : ControllerBase
     {
+        IConfiguration configuration = null;
         SchoolContext context = null;
         PersonContext sqlitecontext = null;
         IHostingEnvironment ihostingEnvironment = null;
-        public TestController(SchoolContext _context,PersonContext _sqlitecontext, IHostingEnvironment _ihostingEnvironment)
+        public TestController(SchoolContext _context, PersonContext _sqlitecontext, IHostingEnvironment _ihostingEnvironment, IConfiguration _configuration)
         {
             context = _context;
             sqlitecontext = _sqlitecontext;
             ihostingEnvironment = _ihostingEnvironment;
-            
+            configuration = _configuration;
         }
 
-        
+
 
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -73,7 +76,7 @@ namespace API_ProDocker.Controllers
            .Select(a => a.Address)
            //.Where(a => a.IsIPv6LinkLocal)
            .ToList()
-           .ForEach(ip => result+= $"IP: {ip}, ScopeId: {ip.ScopeId} \r" );
+           .ForEach(ip => result += $"IP: {ip}, ScopeId: {ip.ScopeId} \r");
             return this.Ok(result);
         }
 
@@ -95,6 +98,15 @@ namespace API_ProDocker.Controllers
                 throw new Exception(ApplicationEnvironment.ApplicationBasePath);
             });
             return this.Ok(result);
+        }
+
+        [HttpGet("getdd")]
+        public ActionResult GetDapperData(string key)
+        {
+            DapperContext dapperContext = new DapperContext(configuration.GetConnectionString("LocalDB"));
+            var result = dapperContext.FindListByLastName(key);
+            return this.Ok(result);
+
         }
     }
 }

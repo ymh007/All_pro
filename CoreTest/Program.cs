@@ -13,12 +13,19 @@ namespace CoreTest
             //{
             //    Console.WriteLine(carray[i]);
             //} 
+            DateTime start = DateTime.Parse("2019-04-03 15:00:00");
+            DateTime end = DateTime.Parse("2019-04-02 14:59:01");
+            TimeSpan ts = start.Subtract(end);
+            int a =(int)ts.TotalMinutes;
+            Console.WriteLine("时间间隔分钟数："+a);
+            Console.Write(ts);
+
             Console.ReadKey();
         }
        static  bool IsLate(string onTime, out int minute)
         {
             DateTime curr = Convert.ToDateTime("2019-03-04 08:32:00");
-            var time = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd") + " " + onTime);// 上班时间
+            var time = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd") + " " + onTime);
             if (curr <= time)
             {
                 minute = 0;

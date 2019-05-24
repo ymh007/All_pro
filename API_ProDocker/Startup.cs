@@ -15,6 +15,7 @@ using System.IO;
 using log4net.Repository;
 using log4net.Config;
 using log4net;
+using API_ProDocker.DapperData;
 
 namespace API_ProDocker
 {
@@ -28,8 +29,11 @@ namespace API_ProDocker
             Configuration = configuration;
             
         }
+        public static class ServiceLocator
+        {
+            public static IServiceProvider Instance { get; set; }
+        }
 
-        
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -44,7 +48,7 @@ namespace API_ProDocker
             services.AddDbContext<SchoolContext>(options =>
 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<PersonContext>();
-            
+            //services.AddTransient<IRepositoryBase<T>,RepositoryBase>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,6 +65,7 @@ options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             });
             //app.UseWebSockets();
             app.UseMvc();
+            ServiceLocator.Instance = app.ApplicationServices;
         }
     }
 }

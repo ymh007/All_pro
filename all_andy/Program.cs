@@ -15,11 +15,12 @@ namespace all_andy
         static void Main(string[] args)
         {
 
-            using (WebApp.Start<Startup>("http://localhost:9000"))
-            {
-                Console.WriteLine("Press [enter] to quit...");
-                Console.ReadLine();
-            }
+            //using (WebApp.Start<Startup>("http://localhost:9000"))
+            //{
+            //    Console.WriteLine("Press [enter] to quit...");
+            //    Console.ReadLine();
+            //}
+            System.IO.File.AppendAllText("e:\\log.txt", DateTime.Now.ToString() + "\r\n");
 
             Console.ReadKey();
         }

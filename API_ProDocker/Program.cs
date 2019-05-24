@@ -36,7 +36,7 @@ namespace API_ProDocker
 
         public static IWebHost CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
-        .UseUrls("http://10.23.80.87:5000")
+        //.UseUrls("http://10.23.80.87:5000")
         .UseStartup<Startup>()
         //.ConfigureLogging((hostContext, logging) =>
         //{
