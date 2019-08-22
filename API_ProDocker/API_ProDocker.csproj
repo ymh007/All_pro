@@ -23,6 +23,6 @@
     <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="2.18.3" />
   </ItemGroup>
 
-  <ProjectExtensions><VisualStudio><UserProperties __JSONSchema="" /></VisualStudio></ProjectExtensions>
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1Development_1json__JSONSchema="" __JSONSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>
