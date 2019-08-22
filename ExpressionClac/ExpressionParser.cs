@@ -859,6 +859,7 @@ namespace ExpressionClac
         public static object GetTreeValue(ExpTreeNode tree, CalculateUserFunction calculateUserFunction, object callerContext, bool optimize)
         {
             return ExpTreeExecutor.Instance.GetValue(tree, calculateUserFunction, callerContext, optimize);
+
         }
 
         #endregion
