@@ -12,6 +12,7 @@ namespace CoreTest
     {
         static void Main(string[] args)
         {
+            #region ---test
             ////TestMain tm = new TestMain();
             ////Console.WriteLine(tm.Test("5>2&&(3==3||3>4)"));
             //int a = 234;
@@ -27,13 +28,16 @@ namespace CoreTest
             //Console.WriteLine("时间间隔分钟数："+a);
             //Console.Write(ts);
             //getData();
-            MemInfo networkInfo = ServerConfig.ReadMemInfo();
-            int cpu = ServerConfig.ReadCpuUsage();
-            testResult("CPU使用信息" + cpu);
-            HDDInfo  hDDInfo= ServerConfig.ReadHddInfo();
-            ServerConfig.SyncSystemDatetime();
+            //MemInfo networkInfo = ServerConfig.ReadMemInfo();
+            //int cpu = ServerConfig.ReadCpuUsage();
+            //testResult("CPU使用信息" + cpu);
+            //HDDInfo  hDDInfo= ServerConfig.ReadHddInfo();
+            //ServerConfig.SyncSystemDatetime();
             //testObject(networkInfo);
             //testObject(hDDInfo);
+            #endregion
+            EPPlusExcel.TestExport();
+
             Console.ReadKey();
         }
         static bool IsLate(string onTime, out int minute)
@@ -73,7 +77,7 @@ namespace CoreTest
         {
             String basePath1 = AppContext.BaseDirectory;
             String basePath2 = Path.GetDirectoryName(typeof(Program).Assembly.Location);
-            File.AppendAllText(basePath1 + "res.txt", "\r\n"+ DateTime.Now.ToString("yyyy-MM-dd hh:MM:ss") + "\r\n"+ context);
+            File.AppendAllText(basePath1 + "res.txt", "\r\n" + DateTime.Now.ToString("yyyy-MM-dd hh:MM:ss") + "\r\n" + context);
         }
     }
 
