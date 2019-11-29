@@ -36,7 +36,8 @@ namespace API_ProDocker
 
         public static IWebHost CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
-        //.UseUrls("http://10.23.80.87:5000")
+         .UseUrls("http://localhost:5000")
+         //IdentityServer4的使用需要配置UseUrls
         .UseStartup<Startup>()
         //.ConfigureLogging((hostContext, logging) =>
         //{

@@ -28,14 +28,15 @@ namespace CoreTest
                 Random rd = new Random();
                 DataRow row = dt.NewRow();
                 row[0] = i;
-                row[1] ="帕苏儿.青铜止血.吕归尘" +rd.Next();
-                row[2] = "科技二路西安软件园72号"+rd.Next();
-                row[3] = (i*i)%2;
-                row[4] = "187263463"+i;
-                row[5] = "这是备注信息"+rd.Next();
+                row[1] = "帕苏儿.青铜止血.吕归尘" + rd.Next();
+                row[2] = "科技二路西安软件园72号" + rd.Next();
+                row[3] = (i * i) % 2;
+                row[4] = "187263463" + i;
+                row[5] = "这是备注信息" + rd.Next();
+                dt.Rows.Add(row);
             }
-            ExportByEPPlus(dt, DateTime.Now.ToString("yyyyMMdd")+".xlsx");
-
+            ExportByEPPlus(dt, DateTime.Now.ToString("yyyyMMdd") + ".xlsx");
+            Console.WriteLine("导出完成请打开查看！");
         }
 
 
@@ -75,6 +76,8 @@ namespace CoreTest
 
                     rng.Style.Border.Right.Style = borderStyle;
                     rng.Style.Border.Right.Color.SetColor(borderColor);
+
+                    rng.AutoFitColumns();
                 }
 
                 //Format the header row

@@ -36,9 +36,35 @@ namespace CoreTest
             //testObject(networkInfo);
             //testObject(hDDInfo);
             #endregion
-            EPPlusExcel.TestExport();
+            // EPPlusExcel.TestExport();
+
+
+            //
+
+            // 委托函数
+            Func<string, string, string> func1 = Hello;
+            // 匿名方法
+            Func<string, string, string> func2 =
+                delegate (string a, string b)
+                {
+                    return "欢迎光临我的博客" + Environment.NewLine + a + " " + b;
+                };
+            // Lambda表达式
+            Func<string, string, string> func3 =
+                (a, b) => { return "欢迎光临我的博客" + Environment.NewLine + a + " " + b; };
+
+            // 调用Func委托
+            string helloStr = func2("滴答的雨", @"http://www.cnblogs.com/heyuquan/");
+
+            Console.WriteLine(helloStr);
+
+
 
             Console.ReadKey();
+        }
+        static string Hello(string a, string b)
+        {
+            return "欢迎光临我的博客" + Environment.NewLine + a + " " + b;
         }
         static bool IsLate(string onTime, out int minute)
         {
